@@ -1,21 +1,22 @@
 import React from "react";
 import {Text, View} from "react-native";
-import {RectButton, RectButtonProps} from "react-native-gesture-handler";
-import {SvgProps} from "react-native-svg";
-import {LinearGradient} from "expo-linear-gradient";
-import {theme} from "../../global/styles/theme";
 import {styles} from "./styles";
 
-type Props = RectButtonProps & {
-    title: string,
-    icon: React.FC<SvgProps>,
-    checked?: boolean;
+type Props = {
+    title: string;
+    subtitle: string;
 }
 
-export function ListHeader({title, icon: Icon, checked = false, ...rest}: Props) {
-    const {secondary50, secondary70} = theme.colors;
+export function ListHeader({title, subtitle}: Props) {
 
     return (
-        <View></View>
+        <View style={styles.container}>
+            <Text style={styles.title}>
+                {title}
+            </Text>
+            <Text style={styles.subtitle}>
+                {subtitle}
+            </Text>
+        </View>
     );
 }
